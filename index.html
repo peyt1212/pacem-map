@@ -17,23 +17,36 @@
   <body>
     <div id="app-root">Loading map...</div>
     <script type="text/javascript">
-		var config = {
-			defaultCollectionUrls: [],
-			initialState: {
-			mapConfig: {
-				borderApothem: 10000,
-				tilesRoot: "./terrain_tiles/",
-				basemaps: {
-				terrain: {
-					name: "Local Terrain",
-					id: "terrain",
-					bgColor: "#000",
-					isDefault: true,
+		localStorage.setItem("CivMap.view.3.0.0-beta3", JSON.stringify({
+			mapView: {
+				basemapId: "terrain",
+				viewport: {
+				x: -4972,
+				z: -1459,
+				radius: 830
 				},
-				minZoom: 0,
-				maxZoom: 2,
-				}
-			},
+				zoom: -2
+			}
+		}));
+		var config = {
+			defaultCollectionUrls: [
+				{ source: 'defaultCollections/Pacem Survey 5-20-25.json' , enabled_presentation: true}
+			],
+			initialState: {
+				mapConfig: {
+					borderApothem: 10000,
+					tilesRoot: "./terrain_tiles/",
+					basemaps: {
+						terrain: {
+							name: "Local Terrain",
+							id: "terrain",
+							bgColor: "#000",
+							isDefault: true,
+							minZoom: 0,
+  							maxZoom: 2
+						},
+					}
+				},
 			mapView: {
 				zoom: 2,
 				center: [-2 * 256, -6 * 256] // [y, x] in pixel CRS.Simple coords
